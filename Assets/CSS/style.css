@@ -1,0 +1,12 @@
+body { 
+ background: url(#); 
+}
+
+.card { 
+    background-color: #e8ecef;
+    border: none; 
+}
+
+li { 
+    list-style: none;
+}
