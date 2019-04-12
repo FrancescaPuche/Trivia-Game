@@ -1,5 +1,13 @@
 body { 
- background: url(#); 
+ background: url(../Images/map2.jpg); 
+ background-size: 1320px 750px;
+
+
+}
+
+h1 { 
+    font-size: 70px;
+    text-decoration: underline; 
 }
 
 .card { 
