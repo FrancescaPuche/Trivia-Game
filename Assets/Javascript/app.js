@@ -5,6 +5,8 @@ $(document).ready(function() {
     // Global Variables for quiz and timer
     var correctAnswers = 0;
     var wrongAnswers = 0;
+    var notAnswered = 0; 
+
     var timer = {
         minutes: 6, 
         seconds: 59
@@ -53,8 +55,22 @@ $(document).ready(function() {
     /***************************************************/
 
     // Function making sure that the user cannot change their answer once they clicked on one
-    function test() { 
+    function quiz() { 
+        function getResult() {
 
+            var quesOne = $('input:question[name="one"]:checked').val();
+            // console.log("Value of Q1 is : "+Q1);
+            var quesTwo = $('input:question[name="two"]:checked').val();
+            var quesThree = $('input:question[name="three"]:checked').val();
+            var quesFour = $('input:question[name="four"]:checked').val();
+            var quesFive = $('input:question[name="five"]:checked').val();
+            var quesSix = $('input:question[name="six"]:checked').val();
+            var quesSeven = $('input:question[name="seven"]:checked').val();
+            var quesEight = $('input:question[name="eight"]:checked').val();
+            var quesNine = $('input:question[name="nine"]:checked').val();
+            var quesTen = $('input:question[name="ten"]:checked').val();
+         
+        }
     }
 
     // Function for sumbit button - must make sure the user cannot submit quiz until all questions have an answer
@@ -62,12 +78,12 @@ $(document).ready(function() {
 
     }
 
-    // Function storing the correct answers
+    
     function rightAnswers() { 
-
+    
     }
 
-    // Function storing the wrong answers
+    
     function wrong() { 
 
     }
