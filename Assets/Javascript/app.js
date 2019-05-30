@@ -2,7 +2,7 @@
 
 
 $(document).ready(function() {
-
+    // Global Variables for quiz and timer
     var correctAnswers = 0;
     var wrongAnswers = 0;
     var timer = {
@@ -12,19 +12,22 @@ $(document).ready(function() {
     var intervalId;
     var running = false;
 
+    /***************************************************/
+
+    // Function to run the timer 
     function runTimer(){
         if (!running) {
         intervalId = setInterval(countDown(), 50000); 
         running = true;
         }
     }
-
-    function countDown () {
+    // Function to count down the minute and seconds 
+    function countDown() {
         $("#timer").text(timer.minutes + ":" + timer.seconds);
         timer.seconds--; 
 
         if (timer.seconds < 0) {
-            
+
             return timer.seconds--; 
         } 
 
@@ -39,7 +42,7 @@ $(document).ready(function() {
             $("#timer").text("Time's Up!");
         }	
     }
-    
+    // Function to stop the timer (must add that the user cannot continue the quiz if the time is up)
     function stop() {
         running = false;
         clearInterval(intervalId);
@@ -47,5 +50,31 @@ $(document).ready(function() {
 
     runTimer();
 
+    /***************************************************/
+
+    // Function making sure that the user cannot change their answer once they clicked on one
+    function test() { 
+
+    }
+
+    // Function for sumbit button - must make sure the user cannot submit quiz until all questions have an answer
+    function submit() { 
+
+    }
+
+    // Function storing the correct answers
+    function rightAnswers() { 
+
+    }
+
+    // Function storing the wrong answers
+    function wrong() { 
+
+    }
+
+    // Function calculating and displaying the final score
+    function score(){ 
+
+    }
 
 });
