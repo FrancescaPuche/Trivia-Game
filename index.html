@@ -16,182 +16,35 @@
 <body>
 
     <div class="container">
-
-        <div class="jumbotron">
-            <header class="text-center">
-                <h1>Trivia Game</h1>
-                <h3>Instructions:</h3>
-                <p>Click the start button to start the timer. Answer each true and false geography-based question before the timer runs out. Once you are done,
-                    click sumbit to see your score.
-                </p> 
-                <!-- <button id="start" class="btn btn-primary">Start</button> -->
-
-                <h3> Timer: <span id="timer"> </span></h3> 
-            </header> 
-            <br> 
-        </div>
-        <div class="container"> 
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 1</h4>
-                    <p class="card-text text-center">Curacao is an island in the Caribbean.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="answer" type="question" name="one" class="question btn btn-primary">True</li>
-                            <li id="wrong" type="question" name="one" lass="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
+        <nav class="jumbotron">
+            <nav class="text-center"> 
+                <h1>Geography Trivia Quiz</h1>
+                <br> 
+                <p> Answer the true or false questions before the time runs out!</p> 
+                <br> 
+                <button id="start" class="btn btn-primary"> Start</button>
+                <br>
+                <br>
+                <h3 class="text-center">Timer: <span id="timer"></span></h3>
+            </nav>
+        </nav>
+            <div class="card text-center">
+                <div class="card-header"> Question <span id="quesNum"></span></div>
+                <div class="card-body">
+                    <h5 id="question-display" class="card-title"></h5>
+                    <a> 
+                        <span id="a"></span> 
+                        <span id="b"></span>
+                    </a>
                 </div>
             </div>
-
-            <br>
-            
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 2</h4>
-                    <p class="card-text text-center">Ethiopia used to be called Abyssinia.</p>
-                    <p> 
-                        <ul class="text-center"> 
-                            <li id="answer" type="question" name="two"class="question btn btn-primary">True</li>
-                            <li id="wrong" type="question" name="two" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
+            <!-- <div id="question-display" class="card text-center">
+                <div id="quiz-questions">
+                    <button id="start">Start</button>
                 </div>
-            </div>
+            </div> -->
+    </div>
 
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 3</h4>
-                    <p class="card-text text-center">The Mississippi River is the longest river in the world.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="wrong" type="question" name="three" class="question btn btn-primary">True</li>
-                            <li id="answer" type="question" name="three" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 4</h4>
-                    <p class="card-text text-center">Montana is the least populated state in the U.S.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="wrong" type="question" name="four" class="question btn btn-primary">True</li>
-                            <li id="answer" type="question" name="four" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 5</h4>
-                    <p class="card-text text-center">Syndey is the captial of Australia.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="wrong" type="question" name="five" class="question btn btn-primary">True</li>
-                            <li id="answer" type="question" name="five" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 6</h4>
-                    <p class="card-text text-center">The Mediterranean Sea is the largest sea in the world.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="wrong" type="question" name="six" class="question btn btn-primary">True</li>
-                            <li id="answer" type="question" name="six" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 7</h4>
-                    <p class="card-text text-center">Iran is also known as Persia.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="answer" type="question" name="seven" class="question btn btn-primary">True</li>
-                            <li id="wrong" type="question" name="seven" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 8</h4>
-                    <p class="card-text text-center">Malta is the largest island in the Mediterranean.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="wrong" type="question" name="eight" class="question btn btn-primary">True</li>
-                            <li id="answer" type="question" name="eight" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br>
-            
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 9</h4>
-                    <p class="card-text text-center">South America is the second larget continent.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="wrong" type="question" name="nine" class="question btn btn-primary">True</li>
-                            <li id="answer" type="question" name="nine" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body"> 
-                    <h4 class="card-title text-center"><span class="answerSymbol"></span>Question 10</h4>
-                    <p class="card-text text-center">Ecuador is a landlocked country in South America.</p>
-                    <p> 
-                        <ul class="text-center">
-                            <li id="wrong" type="question" name="ten" class="question btn btn-primary">True</li>
-                            <li id="answer" type="question" name="ten" class="question btn btn-primary">False</li>
-                        </ul>
-                    </p>
-                </div>
-            </div>
-
-            <br> 
-
-            <div class="card"> 
-                <div class="card-body text-center">
-                    <p class="card-text"> Once you are done with the quiz, press the submit button.</p> 
-                    <button id="stop" class="btn btn-primary">Submit</button>
-                </div> 
-            </div>
-
-        </div>
-        <br> 
-          
-    </div> 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
