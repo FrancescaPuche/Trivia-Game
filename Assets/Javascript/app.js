@@ -80,32 +80,40 @@ var questions = [
 
   // quiz timer 
 
-  var quiz = {
-      quesNum: qNum,
-      questions: questions, 
-      currentQuestion: 0, 
-      timer: timer, 
-      correctQuestions: 0, 
-      incorrectQuestions: 0, 
-      countdown: function() { 
-          quiz.counter--; 
-          $("#timer").html(quiz.timer); 
+var quiz = {
+    quesNum: qNum,
+    questions: questions, 
+    currentQuestion: 0, 
+    counter: timer, 
+    correctQuestions: 0, 
+    incorrectQuestions: 0, 
+    countdown: function() { 
+        quiz.counter--; 
+        $("#timer").html(quiz.timer); 
 
-          if (quiz.timer === 0) { 
-              console.log("Time's up!");
-              quiz.timeUp();
-          }
-      }, 
-        loadQuestion: function() { 
-            time = setInterval(quiz.countdown, 1000); 
-            panel.html('<h4>' + questions[this.currentQuestion].question + '</h4>' );
+        if (quiz.timer === 0) { 
+            console.log("Time's up!");
+            quiz.timeUp();
+        }
+    }, 
+    loadQuestion: function() { 
+        time = setInterval(quiz.countdown, 1000); 
+        panel.html('<h4>' + questions[this.currentQuestion].question + '</h4>' );
 
-            for (var i = 0; i<questions[this.currentQuestion].answers.length; i++) {
-                panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i]+ '</button>');
-                panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i+1] + '">' + questions[this.currentQuestion].answers[i+1]+ '</button>');
-            }
-        }, 
-  }
+        for (var i = 0; i<questions[this.currentQuestion].answers.length; i++) {
+            panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i]+ '</button>');
+            panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i+1] + '">' + questions[this.currentQuestion].answers[i+1]+ '</button>');
+        }
+    }, 
+    nextQuestion: function() { 
+        quiz.counter = timer; 
+        $("#timer").html(quiz.counter); 
+        quiz.currentQuestion++; 
+        quiz.loadQuestion(); 
+    }, 
+    
+        
+}
 
 
   
