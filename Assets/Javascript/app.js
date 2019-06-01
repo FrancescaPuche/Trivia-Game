@@ -1,17 +1,21 @@
 var display = $("#question-display"); 
 var timer = 30; 
 
+$(document).on("click", "#restart", function(e) { 
+    quiz.reset(); 
+})
+
 
 $(document).on("click", ".choices", function(e) { 
-    game.clicked(e); 
+    quiz.clicked(e); 
 }); 
 
 $(document).on("click", "#start", function(e) { 
     $("#timer").text(timer); 
-    game.loadQuestion(); 
+    quiz.loadQuestion(); 
 }); 
 
-var quizQuestions = [
+var questions = [
     {
         qNum: 1,
         question: "Curacao is a small country in the Carribean",
@@ -73,5 +77,35 @@ var quizQuestions = [
         correctAnswer: "False",
     }
   ];
+
+  // quiz timer 
+
+  var quiz = {
+      quesNum: qNum,
+      questions: questions, 
+      currentQuestion: 0, 
+      timer: timer, 
+      correctQuestions: 0, 
+      incorrectQuestions: 0, 
+      countdown: function() { 
+          quiz.counter--; 
+          $("#timer").html(quiz.timer); 
+
+          if (quiz.timer === 0) { 
+              console.log("Time's up!");
+              quiz.timeUp();
+          }
+      }, 
+        loadQuestion: function() { 
+            time = setInterval(quiz.countdown, 1000); 
+            panel.html('<h4>' + questions[this.currentQuestion].question + '</h4>' );
+
+            for (var i = 0; i<questions[this.currentQuestion].answers.length; i++) {
+                panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i]+ '</button>');
+                panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i+1] + '">' + questions[this.currentQuestion].answers[i+1]+ '</button>');
+            }
+        }, 
+  }
+
 
   
