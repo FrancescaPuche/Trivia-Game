@@ -22,55 +22,55 @@ var quizQuestions = [
         qNum: 2,
         question: "Montana is the least populated state in the US.",
         answers: ["True", "False"],
-        correctAnswer: "",
+        correctAnswer: "True",
     }, 
     {
         qNum: 3,
-        question: " ",
+        question: "The Nile River is the longest river in the world",
         answers: ["True", "False"],
-        correctAnswer: ""
+        correctAnswer: "True"
     }, 
     {
         qNum: 4,
-        question: " ",
+        question: "The country of Greenland is the same size as the continent of Africa ",
         answers: ["True", "False"],
-        correctAnswer: "",
+        correctAnswer: "False",
     },
     {
         qNum: 5,
-        question: " ",
+        question: "Alaska was the last state in the US to become a state.",
         answers: ["True", "False"],
-        correctAnswer: ""
+        correctAnswer: "False"
     }, 
     {
         qNum: 6,
-        question: " ",
+        question: "Sydney is the captial of Australia.",
         answers: ["True", "False"],
-        correctAnswer: "",
+        correctAnswer: "False",
     },
     {
         qNum: 7,
-        question: " ",
+        question: "Lake Michigan is surrounded by two countries.",
         answers: ["True", "False"],
-        correctAnswer: ""
+        correctAnswer: "True"
     }, 
     {
         qNum: 8,
-        question: " ",
+        question: "90% of the Earth's population lives in the northern hemisphere.",
         answers: ["True", "False"],
-        correctAnswer: " ",
+        correctAnswer: "True",
     },
     {
         qNum: 9,
-        question: " ",
+        question: "California has more people than all of Canada",
         answers: ["True", "False"],
-        correctAnswer: "",
+        correctAnswer: "True",
     },
     {
         qNum: 10,
-        question: " ",
+        question: "Russia spans 10 time zones.",
         answers: ["True", "False"],
-        correctAnswer: "",
+        correctAnswer: "False",
     }
   ];
 
