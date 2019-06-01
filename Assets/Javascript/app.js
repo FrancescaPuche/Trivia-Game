@@ -11,7 +11,8 @@ $(document).on("click", ".choices", function(e) {
 }); 
 
 $(document).on("click", "#start", function(e) { 
-    $("#timer").text(timer); 
+    // $("#timer").text(timer); 
+    $("#timeHere").prepend("<h3 class='text-center'>Timer: <span id='timer'>30</span> seconds</h3>")
     quiz.loadQuestion(); 
 }); 
 
@@ -81,7 +82,6 @@ var questions = [
   // quiz timer 
 
 var quiz = {
-    quesNum: qNum,
     questions: questions, 
     currentQuestion: 0, 
     counter: timer, 
@@ -89,7 +89,8 @@ var quiz = {
     incorrectQuestions: 0, 
     countdown: function() { 
         quiz.counter--; 
-        $("#timer").html(quiz.timer); 
+        $("#timer").html(quiz.counter); 
+        quiz.counter--; 
 
         if (quiz.timer === 0) { 
             console.log("Time's up!");
@@ -102,7 +103,6 @@ var quiz = {
 
         for (var i = 0; i<questions[this.currentQuestion].answers.length; i++) {
             display.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i]+ '</button>');
-            display.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i+1] + '">' + questions[this.currentQuestion].answers[i+1]+ '</button>');
         }
     }, 
     nextQuestion: function() { 
