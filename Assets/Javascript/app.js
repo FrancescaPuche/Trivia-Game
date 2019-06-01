@@ -98,11 +98,11 @@ var quiz = {
     }, 
     loadQuestion: function() { 
         time = setInterval(quiz.countdown, 1000); 
-        panel.html('<h4>' + questions[this.currentQuestion].question + '</h4>' );
+        display.html('<h4>' + questions[this.currentQuestion].question + '</h4>' );
 
         for (var i = 0; i<questions[this.currentQuestion].answers.length; i++) {
-            panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i]+ '</button>');
-            panel.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i+1] + '">' + questions[this.currentQuestion].answers[i+1]+ '</button>');
+            display.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i]+ '</button>');
+            display.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i+1] + '">' + questions[this.currentQuestion].answers[i+1]+ '</button>');
         }
     }, 
     nextQuestion: function() { 
@@ -111,7 +111,21 @@ var quiz = {
         quiz.currentQuestion++; 
         quiz.loadQuestion(); 
     }, 
-    
+
+    timeUp: function() { 
+        clearInterval(timer); 
+        $("#timer").html(game.counter); 
+
+        display.html("<h3>Time's up!</h3>"); 
+        display.append("<h4> Correct Answer: " + questions[this.currentQuestion].correctAnswer);
+
+        if (quiz.currentQuestion === questions.length - 1) { 
+            setTimeout(quiz.results, 3000); 
+        }
+        else { 
+            setTimeout(quiz.nextQuestion, 3000); 
+        }
+    }, 
         
 }
 
