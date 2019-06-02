@@ -88,11 +88,11 @@ var quiz = {
     countdown: function() { 
         quiz.counter--; 
         $("#timer").html(quiz.counter); 
-        quiz.counter--; 
 
         if (quiz.counter === 0) { 
             console.log("Time's up!");
             quiz.timeUp();
+            quiz.reset(); 
         }
     }, 
     loadQuestion: function() { 
@@ -109,9 +109,8 @@ var quiz = {
         quiz.currentQuestion++; 
         quiz.loadQuestion(); 
     }, 
-
     timeUp: function() { 
-        clearInterval(quiz.counter); 
+        clearInterval(time); 
         $("#timer").html(game.counter); 
 
         display.html("<h3>Time's up!</h3>"); 
@@ -124,9 +123,8 @@ var quiz = {
             setTimeout(quiz.nextQuestion, 3000); 
         }
     }, 
-
     results: function() { 
-        clearInterval(quiz.counter);
+        clearInterval(time);
 
         display.html('<h3>All done, heres how you did!</h3>');
         $('#timer').html(quiz.counter);
@@ -136,7 +134,7 @@ var quiz = {
         display.append('<br><button id="start-over">Start Over?</button>');
     },
     clicked: function(e) { 
-        clearInterval(quiz.counter); 
+        clearInterval(time); 
 
         if ($(e.target).data("name") === questions[this.currentQuestion].correctAnswer) { 
             this.answeredCorrectly(); 
@@ -148,7 +146,7 @@ var quiz = {
     answeredIncorrectly: function() { 
         quiz.incorrect++; 
         console.log(quiz.incorrect); 
-        clearInterval(quiz.counter); 
+        clearInterval(time); 
         display.html("<h3>Sorry! Wrong answer.</h3>"); 
         display.append("<h3>Correct answer is: " + questions[this.currentQuestion].correctAnswer + "</h3>"); 
     
@@ -160,7 +158,7 @@ var quiz = {
         }
     },
     answeredCorrectly: function() { 
-        clearInterval(quiz.counter); 
+        clearInterval(time); 
         quiz.correct++; 
         display.html("<h3> Correct!</h3>"); 
 
@@ -173,12 +171,11 @@ var quiz = {
     },
     reset: function(){
         this.currentQuestion = 0;
-        this.counter = timer;
+        this.counter = time;
         this.correct = 0;
         this.incorrect = 0;
         this.loadQuestion();
     }
-
 };
 
 
