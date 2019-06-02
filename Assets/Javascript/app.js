@@ -146,9 +146,45 @@ var quiz = {
         else { 
             this.answeredIncorrectly(); 
         }
-    }
+    }, 
+    answeredIncorrectly: function() { 
+        quiz.incorrect++; 
+        console.log(quiz.incorrect); 
+        clearInterval(timer); 
+        display.html("<h3>Sorry! Wrong answer.</h3>"); 
+        display.append("<h3>Correct answer is: " + questions[this.currentQuestion].correctAnswer + "</h3>"); 
+    
+        if (quiz.currentQuestion === questions.length - 1) { 
+            setTimeout(quiz.results, 2000); 
+        }
+        else { 
+            setTimeout(quiz.nextQuestion, 2000); 
+        }
+    },
+    answeredCorrectly: function() { 
+        clearInterval(timer); 
+        quiz.correct++; 
+        display.html("<h3> Correct!</h3>"); 
 
-        
+        if (quiz.currentQuestion === questions.length - 1) {
+            setTimeout(quiz.results, 2000); 
+        }
+        else { 
+            setTimeout(game.nextQuestion, 2000); 
+        }
+    }
+    // answeredCorrectly: function(){
+    //     clearInterval(timer);
+    //     game.correct++;
+    //     panel.html('<h2>Correct!</h2>');
+    //     panel.append('<img src="' + questions[game.currentQuestion].image + '" />');
+    
+    //     if (game.currentQuestion === questions.length - 1){
+    //       setTimeout(game.results, 3 * 1000);
+    //     } else {
+    //       setTimeout(game.nextQuestion, 3 * 1000);
+    //     }
+    //   },     
 }
 
 
