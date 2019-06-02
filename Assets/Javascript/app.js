@@ -136,7 +136,18 @@ var quiz = {
         display.append('<h4>Incorrect Answers: ' + quiz.incorrect + '</h4>');
         display.append('<h4>Unanswered: ' + (questions.length - (quiz.incorrect + quiz.correct)) + '</h4>');
         display.append('<br><button id="start-over">Start Over?</button>');
+    },
+    clicked: function(e) { 
+        clearInterval(timer); 
+
+        if ($(e.target).data("name") === questions[this.currentQuestion].correctAnswer) { 
+            this.answeredCorrectly(); 
+        }
+        else { 
+            this.answeredIncorrectly(); 
+        }
     }
+
         
 }
 
