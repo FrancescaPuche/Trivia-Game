@@ -78,9 +78,7 @@ var questions = [
         correctAnswer: "False",
     }
   ];
-
-  // quiz timer 
-
+ 
 var quiz = {
     questions: questions, 
     currentQuestion: 0, 
@@ -92,7 +90,7 @@ var quiz = {
         $("#timer").html(quiz.counter); 
         quiz.counter--; 
 
-        if (quiz.timer === 0) { 
+        if (quiz.counter === 0) { 
             console.log("Time's up!");
             quiz.timeUp();
         }
@@ -113,7 +111,7 @@ var quiz = {
     }, 
 
     timeUp: function() { 
-        clearInterval(timer); 
+        clearInterval(quiz.counter); 
         $("#timer").html(game.counter); 
 
         display.html("<h3>Time's up!</h3>"); 
@@ -128,7 +126,7 @@ var quiz = {
     }, 
 
     results: function() { 
-        clearInterval(timer);
+        clearInterval(quiz.counter);
 
         display.html('<h3>All done, heres how you did!</h3>');
         $('#timer').html(quiz.counter);
@@ -138,7 +136,7 @@ var quiz = {
         display.append('<br><button id="start-over">Start Over?</button>');
     },
     clicked: function(e) { 
-        clearInterval(timer); 
+        clearInterval(quiz.counter); 
 
         if ($(e.target).data("name") === questions[this.currentQuestion].correctAnswer) { 
             this.answeredCorrectly(); 
@@ -150,42 +148,38 @@ var quiz = {
     answeredIncorrectly: function() { 
         quiz.incorrect++; 
         console.log(quiz.incorrect); 
-        clearInterval(timer); 
+        clearInterval(quiz.counter); 
         display.html("<h3>Sorry! Wrong answer.</h3>"); 
         display.append("<h3>Correct answer is: " + questions[this.currentQuestion].correctAnswer + "</h3>"); 
     
         if (quiz.currentQuestion === questions.length - 1) { 
-            setTimeout(quiz.results, 2000); 
+            setTimeout(quiz.results, 3000); 
         }
         else { 
-            setTimeout(quiz.nextQuestion, 2000); 
+            setTimeout(quiz.nextQuestion, 3000); 
         }
     },
     answeredCorrectly: function() { 
-        clearInterval(timer); 
+        clearInterval(quiz.counter); 
         quiz.correct++; 
         display.html("<h3> Correct!</h3>"); 
 
         if (quiz.currentQuestion === questions.length - 1) {
-            setTimeout(quiz.results, 2000); 
+            setTimeout(quiz.results, 3000); 
         }
         else { 
-            setTimeout(game.nextQuestion, 2000); 
+            setTimeout(quiz.nextQuestion, 3000); 
         }
+    },
+    reset: function(){
+        this.currentQuestion = 0;
+        this.counter = timer;
+        this.correct = 0;
+        this.incorrect = 0;
+        this.loadQuestion();
     }
-    // answeredCorrectly: function(){
-    //     clearInterval(timer);
-    //     game.correct++;
-    //     panel.html('<h2>Correct!</h2>');
-    //     panel.append('<img src="' + questions[game.currentQuestion].image + '" />');
-    
-    //     if (game.currentQuestion === questions.length - 1){
-    //       setTimeout(game.results, 3 * 1000);
-    //     } else {
-    //       setTimeout(game.nextQuestion, 3 * 1000);
-    //     }
-    //   },     
-}
+
+};
 
 
   
