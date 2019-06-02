@@ -102,7 +102,7 @@ var quiz = {
         display.html('<h4>' + questions[this.currentQuestion].question + '</h4>' );
 
         for (var i = 0; i<questions[this.currentQuestion].answers.length; i++) {
-            display.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i]+ '</button>');
+            display.append('<button class="choices btn btn-primary" id="button"' + 'data-name="' + questions[this.currentQuestion].answers[i] + '">' + questions[this.currentQuestion].answers[i] + '</button><br>');
         }
     }, 
     nextQuestion: function() { 
@@ -126,6 +126,17 @@ var quiz = {
             setTimeout(quiz.nextQuestion, 3000); 
         }
     }, 
+
+    results: function() { 
+        clearInterval(timer);
+
+        display.html('<h3>All done, heres how you did!</h3>');
+        $('#timer').html(quiz.counter);
+        display.append('<h4>Correct Answers: ' + quiz.correct + '</h4>');
+        display.append('<h4>Incorrect Answers: ' + quiz.incorrect + '</h4>');
+        display.append('<h4>Unanswered: ' + (questions.length - (quiz.incorrect + quiz.correct)) + '</h4>');
+        display.append('<br><button id="start-over">Start Over?</button>');
+    }
         
 }
 
