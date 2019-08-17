@@ -2,6 +2,7 @@ var display = $("#question-display");
 var timer = 30; 
 
 $(document).on("click", "#restart", function(e) { 
+    quiz.results(); 
     quiz.reset(); 
 })
 
@@ -128,10 +129,10 @@ var quiz = {
 
         display.html('<h3>All done, heres how you did!</h3>');
         $('#timer').html(quiz.counter);
-        display.append('<h4>Correct Answers: ' + quiz.correct + '</h4>');
-        display.append('<h4>Incorrect Answers: ' + quiz.incorrect + '</h4>');
-        display.append('<h4>Unanswered: ' + (questions.length - (quiz.incorrect + quiz.correct)) + '</h4>');
-        display.append('<br><button id="start-over">Start Over?</button>');
+        display.append('<h4>Correct Answers: ' + quiz.correctQuestions + '</h4>');
+        display.append('<h4>Incorrect Answers: ' + quiz.incorrectQuestions + '</h4>');
+        display.append('<h4>Unanswered: ' + (questions.length - (quiz.incorrectQuestions + quiz.correctQuestions)) + '</h4>');
+        display.append('<br><h4>Click on the start button to play again.</h4>');
     },
     clicked: function(e) { 
         clearInterval(time); 
@@ -144,7 +145,7 @@ var quiz = {
         }
     }, 
     answeredIncorrectly: function() { 
-        quiz.incorrect++; 
+        quiz.incorrectQuestions++; 
         console.log(quiz.incorrect); 
         clearInterval(time); 
         display.html("<h3>Sorry! Wrong answer.</h3>"); 
@@ -170,11 +171,13 @@ var quiz = {
         }
     },
     reset: function(){
-        this.currentQuestion = 0;
-        this.counter = time;
-        this.correct = 0;
-        this.incorrect = 0;
-        this.loadQuestion();
+        quiz.currentQuestion = 0;
+        quiz.counter = time;
+        quiz.correctQuestions = 0;
+        quiz.incorrectQuestions = 0;
+        quiz.loadQuestion(); 
+        quiz.reset();  
+
     }
 };
 
